@@ -1,2 +1,13 @@
 <button (click)="onToggleButtonClick()">Toggle Element</button>
-<p *ngIf="isShown">You can see me now!</p>
+<p @showState
+  *ngIf="isShown">You can see me now!</p>
+<button (click)="width=width-50">Shrink</button>
+<button (click)="animate = true">Animate me</button>
+<p [@animateState]="animate ? 'animated' : 'noAnimation'"
+  [ngStyle]="{'width.px': width}">Shrink me</p>
+<hr>
+<button (click)="onAddElement()">Add Element</button>
+<div
+  *ngFor="let testResult of testResults"
+  @showState
+  class="test-result">{{testResults}}</div>
